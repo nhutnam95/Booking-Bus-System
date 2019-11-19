@@ -1,0 +1,125 @@
+<app-header></app-header>
+
+<div class="bus-tp">
+	<div class="container">
+		<p>Date: {{date}}</p>
+		<h2>Route : {{routename}} </h2>
+		<div class="clearfix"></div>
+	</div>
+</div>
+
+<div class="bus-btm">
+	<div class="container">
+		<ul>
+			<li class="trav">
+				<a href="#">Bus</a>
+			</li>
+			<li class="dept">
+				<a href="#">Department</a>
+			</li>
+			<li class="arriv">
+				<a href="#">Arrival</a>
+			</li>
+			<li class="seat">
+				<a href="#">Seats</a>
+			</li>
+			<li class="dept">
+				<a href="#">Price</a>
+			</li>
+			<div class="clearfix"></div>
+		</ul>
+	</div>
+</div>
+
+<div class="bus-midd wow zoomIn animated animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomIn;">
+	<div class="container" *ngFor="let bus of bus">
+
+
+		<ul class="first">
+			<li class="trav">
+				<div class="bus-ic">
+					<img src={{bus.image}} class="img-responsive" alt="">
+				</div>
+				<div class="bus-txt">
+					<h4>{{bus.license}}</h4>
+					<p>{{bus.driver}}</p>
+				</div>
+				<div class="clearfix"></div>
+			</li>
+			<li class="dept">
+
+				<div class="bus-txt1">
+					<h4>
+						<a href="#">{{bus.departure}}</a>
+					</h4>
+					<div class="bus-ic1">
+						<i class="fa fa-clock-o"></i>
+					</div>
+					<p>{{bus.starttime}}</p>
+				</div>
+				<div class="clearfix"></div>
+			</li>
+			<li class="arriv">
+				<div class="bus-txt1">
+					<h4>
+						<a href="#">{{bus.arrival}}</a>
+					</h4>
+					<p>--</p>
+				</div>
+			</li>
+			<li class="seat">
+				<div class="bus-ic3">
+					<img src="/assets/images/seat.png" class="img-responsive" alt="">
+				</div>
+				<div class="bus-txt3">
+					<h4>{{bus['count']}}</h4>
+					<p>Available</p>
+				</div>
+				<div class="clearfix"></div>
+			</li>
+			<li class="fare">
+				<div class="bus-txt4">
+					<h5>{{bus.route.price}} USD</h5>
+					<a [routerLink]="['/book',bus?.idbus, date]" class="view">View Seats</a>
+
+
+
+				</div>
+			</li>
+			<div class="clearfix"></div>
+		</ul>
+
+
+
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <h2>AVAILABLE BUS</h2>
+<div *ngFor="let bus of bus"  >
+<div class="col-md" style="float: left;">
+    <a><img src="{{bus.image}}" /></a>
+
+    <div class="top-content">
+        <h5>{{bus.license}}</h5>
+        <div>
+          <a class="hvr-shutter-in-vertical hvr-shutter-in-vertical2">More</a>
+          <p class="dollar"><span class="in-dollar">$</span><span>{{bus.route.price}}</span></p>
+        </div>
+    </div>
+</div>
+</div> -->

@@ -1,0 +1,85 @@
+.single-para h4{
+	font-size:1.5em;
+	color:#747272;
+	line-height:1.5em;
+	font-weight: 600;
+}
+.para-grid {
+  padding: 1.5em 0;
+}
+span.add-to{
+	float:left;
+	font-size: 1.7em;
+  color: #fd5f36;
+  font-weight: 600;
+}
+a.cart-to{
+	float:right;
+}
+.single-para h5{
+	color:#747272;
+	font-size:1.4em;
+	border-bottom:1px solid #747272;
+	border-top:1px solid #747272;
+	padding:0.5em 0; 
+}
+.single-para p{
+	color:#747272;
+	font-size:0.9em;
+	line-height:1.8em;
+	padding:1.5em 0; 
+}
+.single-bottom h4{
+	color:#747272;
+	font-size:1.5em;
+	padding:0.9em;
+	background:#eee;
+	text-transform:uppercase;
+}
+.single-bottom ul{
+	padding:1em 0;
+}
+.single-bottom ul li{
+	list-style:none;
+}
+.single-bottom ul li a{
+	color:#747272;
+	font-size:1em;
+	padding:0.5em 0;
+	text-decoration:none;
+	display:block;
+}
+
+.single {
+  padding: 4em 0;
+}
+.available h6{
+	color:#f95a32;
+	font-size:1.4em;
+	padding: 0 0 1em;
+}
+.available ul li{
+	display:inline-block;
+	padding:0 0.5em 0 0;
+	color:#4c4c4c;
+	font-size:0.9em;
+}
+.available ul li select {
+  outline: none;
+  padding: 3px;
+
+}
+.available {
+  padding: 2em 0 1em;
+  
+}
+.top-in-single{
+    padding:0;
+}
+
+#imagesize{
+height: 300px;
+width:300px;
+border:2px solid #E5E5E5;
+}
+

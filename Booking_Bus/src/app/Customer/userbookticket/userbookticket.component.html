@@ -1,0 +1,58 @@
+<app-header></app-header>
+
+<div class="container">
+    <div class="tickets-list">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Ticket ID</th>
+            <th>User</th>
+            <th>Route</th>
+            <th>Bus</th>
+            <th>Name Seat</th>
+            <th>Schedule Day</th>
+            <th>Departure</th>
+            <th>Book Day</th>
+            <th>Status Ticket</th>
+            <th>Cancle Ticket</th>
+          </tr>
+        </thead>
+  
+        <tbody>
+          <tr *ngFor="let ticket of ticketuser; index as i">
+            <td>{{ ticket.ticket.idticket }}</td>
+            <td>{{ ticket.users.name }}</td>
+            <td>{{ticket.ticket.bus.route.place}}</td>
+            <td>{{ ticket.ticket.bus.license}}</td>
+            <td>{{ ticket.ticket.nameseat }}</td>
+            <td>{{ ticket.ticket.scheduleday }}</td>
+            <td>{{ ticket.ticket.bus.departure }}</td>
+            <td>{{ticket.bookday}}</td>
+            <td>
+              <div class="label" 
+                [ngClass]="{ 'label-success': ticket.statusbook.idstatusbook === 1, 
+                'label-danger': ticket.statusbook.idstatusbook === 2 }">
+                {{ ticket.statusbook.statusbook }}
+              </div>
+            </td>
+           
+           
+            <td>
+              <a (click)="cancleTicket(ticket.idbooksticket, i,ticket.ticket.idticket)" class="btn btn-primary" title="Update status" >
+                <i class="fa fa-edit"></i>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <hr>
+
+  </div>
+  <nav aria-label="Page navigation">
+      <ul class="pagination">
+        <li class="page-item" *ngFor="let p of pages; let i = index" [ngClass]="{'active': i === page}">
+          <a class="page-link" href="#" (click)="setPage(i, $event)">{{ i+1 }}</a>
+        </li> 
+      </ul>
+    </nav>
+  </div>

@@ -1,0 +1,137 @@
+<app-header></app-header>
+
+<!-- <form >
+  <h1>FIND BUS</h1>
+  <div class="form-group">
+      <div class="dropdown show">
+          <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropdown link
+          </a>
+        
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </div>
+  </div>
+  
+  <div class="form-group">
+    <input type="date" [(ngModel)]="date" placeholder="Choose Date"  name="date">
+  </div>
+
+  <button  (click)="submit()">Find Bus</button>
+</form>
+
+<<<<<<< .mine
+<div>
+  <a routerLink="/ticket-seller">Ticket Seller</a>
+</div> -->
+
+
+
+<!-- <input type="text" [(ngModel)]="idroute" placeholder="Choose Route"  name="idroute"> -->
+
+<div class="container">
+	<div class="col-md-5 bann-info1">
+		<i class="fa fa-ticket"></i>
+		<h3>30% OFFER WITH TICKET BOOKING FREE</h3>
+	</div>
+	<div class="col-md-7 bann-info">
+		<h2>Online Tickets with Zero Booking Fees</h2>
+		<div class="ban-top">
+			<form>
+				<div class="bnr-left">
+          <label class="inputLabel">Route:</label>
+          
+					<select id="country"  class="frm-field required sect form-control" name="idroute" (change)="changeIdRoute(f.value)" #f>
+            <option *ngFor="let r of route" [value]="r.idroute" >{{r.place}}</option> 
+            															
+          </select>
+          <!-- <select id="country"  class="frm-field required sect" [(ngModel)]="idroute">
+            <option *ngFor="let a of idArr" [ngValue]="a.id">{{a.name}}</option> 
+      															
+					</select> -->
+					 
+				</div>
+				
+				<div class="clearfix"></div>
+			</form>
+		</div>
+		<div class="ban-bottom">
+			<form>
+				<div class="bnr-right">
+					<label class="inputLabel">Date of Journey</label>
+					<!-- <input class="date" id="datepicker" type="text"
+            [(ngModel)]="date" name="date" > -->
+            <input type="date" [(ngModel)]="date" placeholder="Choose Date" class="frm-field form-control required sect"  name="date" [min]="nextday">
+				</div>
+				<div class="clearfix"></div>
+				<!---start-date-piker-->
+				<link rel="stylesheet" href="/src/assets/css/jquery-ui.css" />
+				<script src="/src/assets/js/jquery-ui.js"></script>
+				<script>
+					$(function () {
+						$("#datepicker,#datepicker1").datepicker();
+					});
+				</script>
+				<!---/End-date-piker-->
+			</form>
+		</div>
+		<div class="sear">
+			<form action="bus.html">
+				<button class="seabtn" (click)="submit()">Search Buses</button>
+			</form>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+</div>
+
+<div class="travel">
+		<div class="container">
+		
+				<div class="tra-top">
+					<h4>All Route and Bus in Date : {{jstoday}}</h4>
+						<ul class="rout">
+							<li class="rou">Route</li>
+							<li class="ser">Serv<span class="sen">ices</span></li>
+							<li class="fir">Price <span class="sen"></span></li>
+							
+						
+							<div class="clearfix"></div>
+						</ul>
+						<!--- rou-secnd ---->
+						<div *ngFor="let routebus of routeBus">
+						<ul class="rou-secnd animated wow fadeInUp animated" data-wow-duration="1200ms" data-wow-delay="500ms" style="visibility: visible; animation-duration: 1200ms; animation-delay: 500ms; animation-name: fadeInUp;">
+							<li class="rou">
+								
+								<h6><a href="#">{{routebus.place}}</a></h6>
+							</li>
+							<li class="ser">
+									<div class="bus-ic">
+											<img src="/assets/images/bus.png" class="img-responsive" alt="">
+										</div>
+								<p>{{routebus['count']}} Bus</p>
+							</li>
+							<li class="fir">
+								<p>{{routebus.price}}/USD</p>
+							</li>
+						
+							<li class="dat">
+								<a routerLink="/bus/{{routebus.idroute}}/{{nowday}}" class="det">View Buses</a>
+							</li>
+							<div class="clearfix"></div>
+						</ul>
+						</div>
+						<!--- /rou-secnd ---->
+
+		</div>
+		</div>
+		</div>
+		
+
+
+
+
+
+

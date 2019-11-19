@@ -1,0 +1,66 @@
+<app-header>
+</app-header>
+
+
+<div id="booked-detail">
+  <div>
+    <h2 style="text-align: center">Booking Details</h2>
+  </div>
+
+  <div class="row" style="width: 70%; margin: auto; padding: auto;">
+    <div class="col-md-8">
+      <div>
+        <!-- -->
+        <ng-container *ngFor="let seat of busTicket; index as i">
+          <div [class.selected]="seat === selectedSeat" (click)="onSelect(seat)" class="seatCharts-seat seatCharts-cell first-class available "
+            [ngStyle]="{backgroundColor: seat.status.idstatus === 1? '#aqua' : '#FF3333'}"
+             [ngStyle]="{disabled: seat.status.idstatus == 2 ? true : false}">{{seat.nameseat}}
+
+          </div>
+
+          <br *ngIf="(i+1) % 4 === 0">
+
+          <br *ngIf="(i+1) % 4 === 0">
+        </ng-container>
+
+        <!---->
+      </div>
+
+      <div class="detail">
+        <ul class="seatCharts-legendList">
+          <li class="seatCharts-legendItem">
+            <div class="seatCharts-seat seatCharts-cell available first-class"></div>
+            <span class="seatCharts-legendDescription">Available Seat</span>
+          </li>
+          <li class="seatCharts-legendItem">
+            <div class="seatCharts-seat seatCharts-cell unavailable first-class"></div>
+            <span class="seatCharts-legendDescription">Booked Seat</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="select-seat">
+        <h3>Selected Seats</h3>
+      </div>
+
+      <div>
+        <div>
+          <span>Route: </span>{{ selectedSeat?.bus.route.place }}
+          <br>
+          <span>Bus: </span>{{ selectedSeat?.bus.license }}
+          <br>
+          <span>NameSeat:</span> {{selectedSeat?.nameseat}}
+        </div>
+      </div>
+
+      <div>
+        <a (click)="bookTicket()" class="btn btn-info btn-nm">
+          <span class="glyphicon glyphicon-ok"></span> Book
+        </a>
+
+      </div>
+    </div>
+  </div>
+</div>

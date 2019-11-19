@@ -1,0 +1,48 @@
+<div class="container">
+
+  <a routerLink="/ticket-seller/tickets">Return</a>
+
+  <div class="tickets-list">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Ticket ID</th>
+          <th>Bus ID</th>
+          <th>Name Seat</th>
+          <th>Status</th>
+          <th>Departure</th>
+          <th>Arrival</th>
+          <th>Schedule Day</th>
+          <th>Start Time</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let ticket of tickets">
+          <td>{{ ticket.idticket }}</td>
+          <td>{{ ticket.bus.idbus }}</td>
+          <td>{{ ticket.nameseat }}</td>
+          <td>
+            <div class="label" [ngClass]="{ 'label-success': ticket.status.idstatus === 1, 
+              'label-danger': ticket.status.idstatus === 2 }">
+              {{ ticket.status.status }}
+            </div>  
+          </td>
+          <td>{{ ticket.bus.departure }}</td>
+          <td>{{ ticket.bus.arrival }}</td>
+          <td>{{ ticket.scheduleday }}</td>
+          <td>{{ ticket.bus.starttime }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <hr>
+
+    <nav aria-label="Page navigation">
+      <ul class="pagination">
+        <li class="page-item" *ngFor="let p of pages; let i = index" [ngClass]="{'active': i === page}">
+          <a class="page-link" href="#" (click)="setPage(i, $event)">{{ i+1 }}</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>

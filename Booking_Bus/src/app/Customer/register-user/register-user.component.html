@@ -1,0 +1,25 @@
+
+<form>
+    <h1>REGISTER</h1>
+<div class="form-group">
+  <input type="text" [(ngModel)]="user.name" placeholder="Name" name="name">
+</div>
+
+<div class="form-group">
+  <input type="text" [(ngModel)]="user.email"  placeholder="Email" name="email">
+</div>
+
+<div class="form-group">
+  <input type="password" [(ngModel)]="user.password" placeholder="Password"  name="password">
+</div>
+
+<!-- <div class="form-group">
+    <input type="hidden" [(ngModel)]="user.role.idrole" value="1" class="form-control">
+  </div> -->
+
+
+
+
+<a routerLink="" ><button  (click)="createUser()">Register</button></a>
+
+</form>

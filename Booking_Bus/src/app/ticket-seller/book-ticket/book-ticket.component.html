@@ -1,0 +1,88 @@
+
+
+<div class="container">
+  <form class="form-inline">
+    <div class="form-group">
+      <select name="id" id="id" class="form-control" [(ngModel)]="idbus">
+        <option selected disabled>Choose bus</option>
+        <option *ngFor="let bus of buses" [value]="bus.idbus">
+          {{ bus.departure}} - {{ bus.arrival}}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <input type="date" [(ngModel)]="scheduleday" placeholder="Choose Date" name="scheduleDay" id="scheduleDay"
+        class="form-control">
+    </div>
+
+    <button type="button" class="btn btn-primary" (click)="searchBookedTicket()">Search</button>
+  </form>    
+  <select id="country"  class="frm-field required sect form-control" #statusbook >
+        <option value="">--Select Status of BookTicket</option>
+        <option value="1">Booking</option> 
+        <option value="2">Cancle</option>                                 
+    </select>
+
+    <select id="country"  class="frm-field required sect form-control" #r >
+        <option value="">--Select Route of BookTicket</option>
+      <option *ngFor="let r of route">{{r.place}}</option> 
+    </select>
+
+
+    <button class="seabtn" (click)="filter(statusbook.value,r.value)">Filter</button>
+      
+  <div class="book-ticket">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Booked Ticket ID </th>
+          <th>Bus ID</th>
+          <th>Name Seat</th>
+          <th>Customer</th>
+          <th>Schedule Day</th>
+          <th>Start Time</th>
+          <th>Status</th>
+          <th>View Detail</th>
+          <th>Cancel</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let bookticket of bookedTickets">
+          <td>{{ bookticket.idbooksticket }}</td>
+          <td>{{ bookticket.ticket.bus.idbus }}</td>
+          <td>{{ bookticket.ticket.nameseat }}</td>
+          <td>{{ bookticket.users.name }}</td>
+          <td>{{ bookticket?.ticket.scheduleday }}</td>
+          <td>{{ bookticket?.ticket?.bus?.starttime }}</td>
+          <td>
+            <div class="label" [ngClass]="{ 'label-success': bookticket.statusbook.idstatusbook === 1, 
+                  'label-danger': bookticket.statusbook.idstatusbook === 2 }">
+              {{ bookticket.statusbook.statusbook }}
+            </div>
+          </td>
+          <td>
+            <a class="btn btn-primary" title="View detail" routerLink="/ticket-seller/detail/{{bookticket.idbooksticket}}">
+              <i class="fa fa-eye"></i>
+            </a>
+          </td>
+          <td>
+            <button class="btn btn-danger" (click)="cancleTicket(bookticket.idbooksticket,bookticket.ticket.idticket)" [disabled]="bookticket.statusbook.idstatusbook === 2">
+              <i class="fa fa-trash-o" aria-hidden="true"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <hr>
+
+    <nav aria-label="Page navigation">
+      <ul class="pagination">
+        <li class="page-item" *ngFor="let p of pages; let i = index" [ngClass]="{'active': i === page}">
+          <a class="page-link" href="#" (click)="setPage(i, $event)">{{ i+1 }}</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>

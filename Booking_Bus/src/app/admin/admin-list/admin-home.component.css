@@ -1,0 +1,33 @@
+.clearfix:after {
+    content: ".";
+    visibility: hidden;
+    display: block; 
+    clear: both;
+}
+body{
+    counter-reset: number;
+}
+h4::before {
+    counter-increment: number;
+    content: counter(number);
+  }
+
+.form-inline {
+    float: right;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.form-group {
+    margin-right: 10px;
+}
+
+.form-group select {
+    margin-top: 2px;
+}
+#id{
+    margin-top: 0px;
+}
+.f{
+    margin-top: -13px;
+}
